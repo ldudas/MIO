@@ -1,18 +1,18 @@
-package perceptron;
+package first.perceptron;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Perceprton {
+public class Perceptron {
 
 	private static double threshold = 0.5;
 	private double[] weights;
 	
 	private List<List<Double>> learningWeights;
 	
-	public Perceprton() {
+	public Perceptron() {
 		learningWeights = new ArrayList<>();
 	}
 
@@ -56,6 +56,5 @@ public class Perceprton {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

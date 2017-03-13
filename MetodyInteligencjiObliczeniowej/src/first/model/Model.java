@@ -1,4 +1,4 @@
-package model;
+package first.model;
 
 public class Model {
 

@@ -1,12 +1,12 @@
-package simpleLearning;
+package first.simpleLearning;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import model.Model;
-import perceptron.Perceprton;
+import first.model.Model;
+import first.perceptron.Perceptron;
 
 public class SimpleLearning {
 
@@ -14,12 +14,12 @@ public class SimpleLearning {
 	private static double weigthChangePercent = 0.5;
 	private static int weightsToChange = 5;
 	
-	private Perceprton perceptron;
+	private Perceptron perceptron;
 	private Model[] models;
 	
 	private Set<Integer> weightsToChangeIndexes;
 	
-	public SimpleLearning(Perceprton perceptron, Model[] models) {
+	public SimpleLearning(Perceptron perceptron, Model[] models) {
 		this.perceptron=perceptron;
 		this.models=models;
 		weightsToChangeIndexes = new HashSet<>();

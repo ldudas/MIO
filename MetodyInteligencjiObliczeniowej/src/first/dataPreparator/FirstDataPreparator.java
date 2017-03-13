@@ -1,14 +1,10 @@
-package perceptron;
+package first.dataPreparator;
 
-public class FinalResultsTestMain {
+import first.model.Model;
 
-	public static void main(String[] args) {
-		double[] finalResults = {8.570493224435225E-62, 7.251041270133988E-45, 2.6416891554213732E-24, 1.0468535490100925E-60, 2.3798674107038605E-71, 9.942841435775678E-7, 1.3681752532114325E-70, 0.09552678330589379, 27.828892061101573, 2.661860258153514E-52};
-		
-		Perceprton perceptron = new Perceprton();
-		perceptron.setWeights(finalResults);
-		//czy planeta jest ziemiopodobna - czy mo¿e istnieæ na niej ¿ycie
-		
+public class FirstDataPreparator {
+
+	public static Model[] prepareLearningData() {
 		int[] inputsEarth =  {60, //masa x10^23kg
 				 			  6, //promien x10^3km
 				 			  1, //czy skalista
@@ -19,6 +15,7 @@ public class FinalResultsTestMain {
 				 			  149, //odleglosc od gwiazdy x10^6
 				 			  78, //% azotu
 				 			  21};//% tlenu
+		Model earth = new Model("Earth",1,inputsEarth);
 		
 		int[] inputsMars =  { 6, 
 							  3, 
@@ -30,6 +27,7 @@ public class FinalResultsTestMain {
 							  228,
 							  3,
 							  0}; 
+		Model mars = new Model("Mars",1,inputsMars);
 		
 		int[] inputsVenus =  {40, 
 							  6, 
@@ -41,7 +39,7 @@ public class FinalResultsTestMain {
 							  108,
 							  3,
 							  0}; 
-
+		Model venus = new Model("Venus",0,inputsVenus);
 		
 		int[] inputsJupiter = {18000, 
 							   60, 
@@ -53,13 +51,10 @@ public class FinalResultsTestMain {
 							   778,
 							   0,
 							   0};
-
+		Model jupiter = new Model("Jupiter",0,inputsJupiter);
 		
-		System.out.println("expected: 1, actual:"+perceptron.process(inputsEarth));
-		System.out.println("expected: 1, actual:"+perceptron.process(inputsMars));
-		System.out.println("expected: 0, actual:"+perceptron.process(inputsVenus));
-		System.out.println("expected: 0, actual:"+perceptron.process(inputsJupiter));
 		
+		Model[] models = {earth,mars,venus,jupiter};
+		return models;
 	}
-
 }
