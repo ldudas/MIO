@@ -5,7 +5,7 @@ import first.model.Model;
 public class FirstDataPreparator {
 
 	public static Model[] prepareLearningData() {
-		int[] inputsEarth =  {60, //masa x10^23kg
+		double[] inputsEarth =  {60, //masa x10^23kg
 				 			  6, //promien x10^3km
 				 			  1, //czy skalista
 				 			  331, //temp maksymalna K
@@ -17,7 +17,7 @@ public class FirstDataPreparator {
 				 			  21};//% tlenu
 		Model earth = new Model("Earth",1,inputsEarth);
 		
-		int[] inputsMars =  { 6, 
+		double[] inputsMars =  { 6, 
 							  3, 
 							  1, 
 							  293, 
@@ -29,7 +29,7 @@ public class FirstDataPreparator {
 							  0}; 
 		Model mars = new Model("Mars",1,inputsMars);
 		
-		int[] inputsVenus =  {40, 
+		double[] inputsVenus =  {40, 
 							  6, 
 							  1, 
 							  773, 
@@ -41,7 +41,7 @@ public class FirstDataPreparator {
 							  0}; 
 		Model venus = new Model("Venus",0,inputsVenus);
 		
-		int[] inputsJupiter = {18000, 
+		double[] inputsJupiter = {18000, 
 							   60, 
 							   0, 
 							   155, 

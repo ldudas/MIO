@@ -5,13 +5,13 @@ import first.perceptron.Perceptron;
 public class FinalResultsTestMain {
 
 	public static void main(String[] args) {
-		double[] finalResults = {8.570493224435225E-62, 7.251041270133988E-45, 2.6416891554213732E-24, 1.0468535490100925E-60, 2.3798674107038605E-71, 9.942841435775678E-7, 1.3681752532114325E-70, 0.09552678330589379, 27.828892061101573, 2.661860258153514E-52};
+		double[] finalResults = {-17380.0, 0.0, 10.0, 2713.0, 1215.0, 2276.0, -8280.0, 753.0, 855.0, 231.0};
 		
 		Perceptron perceptron = new Perceptron();
 		perceptron.setWeights(finalResults);
 		//czy planeta jest ziemiopodobna - czy mo¿e istnieæ na niej ¿ycie
 		
-		int[] inputsEarth =  {60, //masa x10^23kg
+		double[] inputsEarth =  {60, //masa x10^23kg
 				 			  6, //promien x10^3km
 				 			  1, //czy skalista
 				 			  331, //temp maksymalna K
@@ -22,7 +22,7 @@ public class FinalResultsTestMain {
 				 			  78, //% azotu
 				 			  21};//% tlenu
 		
-		int[] inputsMars =  { 6, 
+		double[] inputsMars =  { 6, 
 							  3, 
 							  1, 
 							  293, 
@@ -33,7 +33,7 @@ public class FinalResultsTestMain {
 							  3,
 							  0}; 
 		
-		int[] inputsVenus =  {40, 
+		double[] inputsVenus =  {40, 
 							  6, 
 							  1, 
 							  773, 
@@ -45,7 +45,7 @@ public class FinalResultsTestMain {
 							  0}; 
 
 		
-		int[] inputsJupiter = {18000, 
+		double[] inputsJupiter = {18000, 
 							   60, 
 							   0, 
 							   155, 

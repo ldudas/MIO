@@ -12,7 +12,8 @@ public class PerceptronSimpleLearningMain {
 
 		Model[] models = FirstDataPreparator.prepareLearningData();
 
-		double[] initialWeights = { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+		//double[] initialWeights = { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+		double[] initialWeights = { 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d, 0d };
 
 		perceptron.setWeights(initialWeights);
 		perceptron.saveWeights();

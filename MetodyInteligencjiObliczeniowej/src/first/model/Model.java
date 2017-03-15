@@ -3,16 +3,16 @@ package first.model;
 public class Model {
 
 	private String name;
-	private int expectedResult;
-	private int[] features;
+	private double expectedResult;
+	private double[] features;
 	
-	public Model(String name, int expectedResult, int[] inputsEarth) {
+	public Model(String name, int expectedResult, double[] features) {
 		this.name = name;
 		this.expectedResult = expectedResult;
-		this.features = inputsEarth;
+		this.features = features;
 	}
 
-	public int getExpectedResult() {
+	public double getExpectedResult() {
 		return expectedResult;
 	}
 
@@ -20,11 +20,12 @@ public class Model {
 		this.expectedResult = expectedResult;
 	}
 
-	public int[] getFeatures() {
+	
+	public double[] getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(int[] features) {
+	public void setFeatures(double[] features) {
 		this.features = features;
 	}
 

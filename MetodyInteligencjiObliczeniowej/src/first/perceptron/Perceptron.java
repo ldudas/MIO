@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Perceptron {
 
-	private static double threshold = 0.5;
+	private static double beta = 1.0;
 	private double[] weights;
 	
 	private List<List<Double>> learningWeights;
@@ -16,14 +16,24 @@ public class Perceptron {
 		learningWeights = new ArrayList<>();
 	}
 
-	public int process(int[] inputs) {
+	/*public int process(double[] inputs) {
 		double weightedSum = 0.0;
 		for(int i=0;i<inputs.length;i++){
 			weightedSum += weights[i] * inputs[i];
 		}
-		double sigmoidalResult = 1.0 / (1.0 + Math.exp(-weightedSum+100));
+		double sigmoidalResult = 1.0 / (1.0 + Math.exp(-weightedSum));
 		System.out.println("ws: "+weightedSum+" sr:"+sigmoidalResult);
 		return sigmoidalResult >= threshold ? 1 : 0;
+	}*/
+	
+	public double process(double[] inputs) {
+		double weightedSum = 0.0;
+		for(int i=0;i<inputs.length;i++){
+			weightedSum += weights[i] * inputs[i];
+		}
+		double sigmoidalResult = 1.0 / (1.0 + Math.exp(-beta*weightedSum));
+		System.out.println("ws: "+weightedSum+" sr:"+sigmoidalResult);
+		return sigmoidalResult;
 	}
 
 	public void setWeights(double[] weights) {

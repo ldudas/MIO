@@ -3,28 +3,28 @@ package second.model;
 public class SecondModel {
 
 	private String name;
-	private int[] expectedResults;
-	private int[] features;
+	private double[] expectedResults;
+	private double[] features;
 	
-	public SecondModel(String name, int[] expectedResults, int[] inputsEarth) {
+	public SecondModel(String name, double[] expectedResults, double[] features) {
 		this.name = name;
 		this.expectedResults = expectedResults;
-		this.features = inputsEarth;
+		this.features = features;
 	}
-	
-	public int[] getExpectedResults() {
+
+	public double[] getExpectedResults() {
 		return expectedResults;
 	}
 
-	public void setExpectedResults(int[] expectedResults) {
+	public void setExpectedResults(double[] expectedResults) {
 		this.expectedResults = expectedResults;
 	}
 
-	public int[] getFeatures() {
+	public double[] getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(int[] features) {
+	public void setFeatures(double[] features) {
 		this.features = features;
 	}
 
