@@ -32,8 +32,7 @@ public class SecondSimpleLearning {
 					while (!currentLearned) 
 					{
 						System.out.println("Learning perceptron "+i);
-						System.out
-								.println(currentModel.getName() + " ex-result:" + currentModel.getExpectedResults()[i]);
+						System.out.println(currentModel.getName() + " ex-result:" + currentModel.getExpectedResults()[i]);
 						System.out.println(Arrays.toString(perceptron.getWeights()));
 
 						double result = perceptron.process(currentModel.getFeatures());
