@@ -24,16 +24,16 @@ public class BackwardPropagationMain
 		Perceptron[] firstLayer = {perceptron1,perceptron2,perceptron3};
 		
 		Perceptron perceptron4 = new Perceptron();
-		double[] initialWeights4 = { 0, 0};
-		perceptron1.setWeights(initialWeights4);
+		double[] initialWeights4 = { 0, 0, 0};
+		perceptron4.setWeights(initialWeights4);
 		
 		Perceptron perceptron5 = new Perceptron();
-		double[] initialWeights5 = { 0, 0};
-		perceptron2.setWeights(initialWeights5);
+		double[] initialWeights5 = { 0, 0, 0};
+		perceptron5.setWeights(initialWeights5);
 		
 		Perceptron perceptron6 = new Perceptron();
-		double[] initialWeights6 = { 0, 0};
-		perceptron3.setWeights(initialWeights6);
+		double[] initialWeights6 = { 0, 0, 0};
+		perceptron6.setWeights(initialWeights6);
 		
 		Perceptron[] secondLayer = {perceptron4,perceptron5,perceptron6};
 		

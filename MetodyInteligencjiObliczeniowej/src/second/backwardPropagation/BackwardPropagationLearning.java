@@ -1,12 +1,14 @@
 package second.backwardPropagation;
 
 
+import java.util.Arrays;
+
 import first.perceptron.Perceptron;
 import second.model.SecondModel;
 
 public class BackwardPropagationLearning 
 {
-	private static double errorThreshold = 0.01;
+	private static double errorThreshold = 0.05;
 	
 	private Perceptron[] firstLayer;
 	private Perceptron[] secondLayer;
@@ -20,6 +22,37 @@ public class BackwardPropagationLearning
 		this.models = models;
 		this.firstLayer = firstLayer;
 		this.secondLayer = secondLayer;
+	}
+	
+	public void learn() 
+	{
+		boolean networkLearned = false;
+		while (!networkLearned) 
+		{
+			boolean weightsChanged = false;
+			for (SecondModel currentModel : models) 
+			{
+				boolean currentLearned = false;
+				while (!currentLearned) 
+				{
+					System.out.println("Learning network with: "+currentModel.getName());
+					System.out.println("Expected results: "+Arrays.toString(currentModel.getExpectedResults()));
+					
+					forwardEvaluation(currentModel);
+					currentLearned = compareResults(currentModel.getExpectedResults());
+					
+					System.out.println("Actual results: "+Arrays.toString(secondEval));
+
+					if (!currentLearned) 
+					{
+						changeWeights(currentModel.getFeatures(), evalErrors(currentModel.getExpectedResults()));
+						weightsChanged = true;
+					}
+
+				}
+			}
+			networkLearned = !weightsChanged;
+		}
 	}
 	
 	private void forwardEvaluation(SecondModel model)
@@ -51,32 +84,6 @@ public class BackwardPropagationLearning
 		return compResult;
 	}
 	
-	public void learn() 
-	{
-		boolean networkLearned = false;
-		while (!networkLearned) 
-		{
-			boolean weightsChanged = false;
-			for (SecondModel currentModel : models) 
-			{
-				boolean currentLearned = false;
-				while (!currentLearned) 
-				{
-					forwardEvaluation(currentModel);
-					currentLearned = compareResults(currentModel.getExpectedResults());
-
-					if (!currentLearned) 
-					{
-						changeWeights(currentModel.getFeatures(), evalErrors(currentModel.getExpectedResults()));
-						weightsChanged = true;
-					}
-
-				}
-			}
-			networkLearned = !weightsChanged;
-		}
-	}
-	
 	private double [] evalErrors(double [] expResults)
 	{
 		double [] evalErrors = new double [3];
@@ -105,8 +112,8 @@ public class BackwardPropagationLearning
 		{
 			for (int j = 0; j < firstLayer[i].getWeights().length; j++)
 			{
-				firstLayer[i].getWeights()[j] += errorsFirstLayer[i] * features[j] * 
-						Math.exp(firstLayer[i].getWeightedSum()) / Math.pow((Math.exp(firstLayer[i].getWeightedSum()) + 1), 2);
+				firstLayer[i].getWeights()[j] += errorsFirstLayer[i] * features[j] ;//* 
+						//(Math.exp(firstLayer[i].getWeightedSum()) / Math.pow((Math.exp(firstLayer[i].getWeightedSum()) + 1), 2));
 			}
 		}
 		
@@ -114,8 +121,8 @@ public class BackwardPropagationLearning
 		{
 			for (int j = 0; j < secondLayer[i].getWeights().length; j++)
 			{
-				secondLayer[i].getWeights()[j] += evalErrors[i] * firstEval[j] * 
-						Math.exp(secondLayer[i].getWeightedSum()) / Math.pow((Math.exp(secondLayer[i].getWeightedSum()) + 1), 2);
+				secondLayer[i].getWeights()[j] += evalErrors[i] * firstEval[j] ;//* 
+						//(Math.exp(secondLayer[i].getWeightedSum()) / Math.pow((Math.exp(secondLayer[i].getWeightedSum()) + 1), 2));
 			}
 		}
 	}
