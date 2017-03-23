@@ -8,7 +8,7 @@ import second.model.SecondModel;
 
 public class BackwardPropagationLearning 
 {
-	private static double errorThreshold = 0.05;
+	private static double errorThreshold = 0.01;
 	
 	private Perceptron[] firstLayer;
 	private Perceptron[] secondLayer;
@@ -35,7 +35,7 @@ public class BackwardPropagationLearning
 				boolean currentLearned = false;
 				while (!currentLearned) 
 				{
-					System.out.println("Learning network with: "+currentModel.getName());
+					System.out.println("\nLearning network with: "+currentModel.getName());
 					System.out.println("Expected results: "+Arrays.toString(currentModel.getExpectedResults()));
 					
 					forwardEvaluation(currentModel);
@@ -112,8 +112,8 @@ public class BackwardPropagationLearning
 		{
 			for (int j = 0; j < firstLayer[i].getWeights().length; j++)
 			{
-				firstLayer[i].getWeights()[j] += errorsFirstLayer[i] * features[j] ;//* 
-						//(Math.exp(firstLayer[i].getWeightedSum()) / Math.pow((Math.exp(firstLayer[i].getWeightedSum()) + 1), 2));
+				firstLayer[i].getWeights()[j] += errorsFirstLayer[i] * features[j] 
+					*	(Math.exp(firstLayer[i].getWeightedSum()) / Math.pow((Math.exp(firstLayer[i].getWeightedSum()) + 1), 2));
 			}
 		}
 		
@@ -121,8 +121,8 @@ public class BackwardPropagationLearning
 		{
 			for (int j = 0; j < secondLayer[i].getWeights().length; j++)
 			{
-				secondLayer[i].getWeights()[j] += evalErrors[i] * firstEval[j] ;//* 
-						//(Math.exp(secondLayer[i].getWeightedSum()) / Math.pow((Math.exp(secondLayer[i].getWeightedSum()) + 1), 2));
+				secondLayer[i].getWeights()[j] += evalErrors[i] * firstEval[j] 
+					*	(Math.exp(secondLayer[i].getWeightedSum()) / Math.pow((Math.exp(secondLayer[i].getWeightedSum()) + 1), 2));
 			}
 		}
 	}

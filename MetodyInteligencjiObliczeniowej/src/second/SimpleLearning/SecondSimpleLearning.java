@@ -7,7 +7,7 @@ import second.model.SecondModel;
 
 public class SecondSimpleLearning {
 	
-	private static double errorThreshold = 0.01;
+	private static double errorThreshold = 0.05;
 	
 	private Perceptron[] perceptrons;
 	private SecondModel[] models;
